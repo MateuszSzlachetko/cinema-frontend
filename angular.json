@@ -65,7 +65,8 @@
               "buildTarget": "cinema-frontend:build:production"
             },
             "development": {
-              "buildTarget": "cinema-frontend:build:development"
+              "buildTarget": "cinema-frontend:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
