@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'HeaderFancy';
+  src: url('/assets/fonts/mexcellent.3d-regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Main';
+  src: url('/assets/fonts/Saniretro.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  font-family: 'Main', sans-serif;
+  font-weight: 450;
+}
+
+.dark-theme {
+  --text: #feefde;
+  --background: #080808;
+  --background-opaque: rgba(28, 28, 28, 0.75);
+  --navbar: #1c1c1c;
+  --primary: #de513c;
+  --secondary: #ef771d;
+  --accent: #c7292b;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--navbar);
+  background-image: url("/assets/waves.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

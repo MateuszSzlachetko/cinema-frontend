@@ -1,0 +1,31 @@
+.landing-page {
+  display: flex;
+  flex-direction: row;
+}
+
+.landing-page__welcome-message {
+  flex: 1;
+  background-color: var(--background-opaque);
+  margin: 3rem 2rem 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+  color: var(--text);
+}
+
+.welcome-message__header {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.welcome-message__message {
+  font-size: 1.25rem;
+}
+
+.landing-page__screenings {
+  flex: 1;
+  background-color: var(--background-opaque);
+  margin: 3rem 2rem 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+  color: var(--text);
+}
