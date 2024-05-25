@@ -6,14 +6,21 @@
 }
 
 @font-face {
-  font-family: 'Main';
+  font-family: 'Header';
   src: url('/assets/fonts/Saniretro.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Questrial';
+  src: url('/assets/fonts/questrial.regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
-  font-family: 'Main', sans-serif;
+  font-family: 'Questrial', sans-serif;
   font-weight: 450;
 }
 
