@@ -1,0 +1,31 @@
+.navbar {
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--navbar);
+}
+
+.navbar__header {
+  font-family: 'HeaderFancy', serif;
+  font-size: 3.5rem;
+  font-weight: 400;
+  color: var(--text);
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.navbar__links {
+  display: flex;
+  width: 400px;
+  justify-content: center;
+}
+
+.links__item {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--secondary);
+  text-align: center;
+  padding: 1rem;
+}
