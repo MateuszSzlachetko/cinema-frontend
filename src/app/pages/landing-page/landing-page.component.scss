@@ -1,6 +1,6 @@
 .landing-page {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .landing-page__welcome-message {
@@ -65,4 +65,13 @@
     color: var(--text);
     border-bottom: 2px solid var(--primary);
   }
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-1 {
+  flex: 1;
 }

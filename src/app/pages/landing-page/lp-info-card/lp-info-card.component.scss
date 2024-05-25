@@ -1,0 +1,21 @@
+.lp-info-card {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  background-color: var(--background-opaque);
+  margin: 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+  color: var(--text);
+}
+
+.lp-info-card__header {
+  font-family: 'Header', serif;
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.lp-info-card__description {
+  font-size: 1.25rem;
+}
