@@ -14,18 +14,53 @@
 
 .welcome-message__header {
   font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .welcome-message__message {
   font-size: 1.25rem;
 }
 
-.landing-page__screenings {
+.landing-page__screenings-info {
   flex: 1;
   background-color: var(--background-opaque);
   margin: 3rem 2rem 2rem;
   padding: 1rem;
   border-radius: 8px;
   color: var(--text);
+}
+
+.screenings-info__header {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.screenings-info__message {
+  font-size: 1.25rem;
+}
+
+.screenings-info__list {
+  list-style-position: outside;
+  list-style-type: circle;
+  padding: 0 1rem 1rem 2rem;
+  border-radius: 8px;
+}
+
+.list__item {
+  padding-left: 0.5rem;
+  font-size: 1.125rem;
+  color: var(--text);
+  margin: 0 1rem 0.5rem;
+  border-bottom: 2px solid var(--background-opaque);
+  padding-bottom: 0.5rem;
+
+  &::marker {
+    color: var(--accent);
+    font-size: 1.5rem;
+  }
+
+  &:hover {
+    color: var(--text);
+    border-bottom: 2px solid var(--primary);
+  }
 }
