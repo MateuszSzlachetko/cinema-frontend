@@ -1,0 +1,70 @@
+<div class="sign-in-page">
+  <div class="sign-in-page__form-container">
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+      <div class="form-section">
+        <label class="form-label" for="name">Name:</label>
+        <input class="form-input" id="name" formControlName="name" type="text"/>
+        @if (f['name'].touched && f['name'].invalid) {
+          <div>
+            @if (f['name'].errors?.['required']) {
+              <div class="form-error">name is required</div>
+            }
+          </div>
+        }
+      </div>
+      <div class="form-section">
+        <label class="form-label" for="surname">Surname:</label>
+        <input class="form-input" id="surname" formControlName="surname" type="text"/>
+        @if (f['surname'].touched && f['surname'].invalid) {
+          <div>
+            @if (f['surname'].errors?.['required']) {
+              <div class="form-error">Surname is required</div>
+            }
+          </div>
+        }
+      </div>
+      <div class="form-section">
+        <label class="form-label" for="phoneNumber">Phone number:</label>
+        <input class="form-input" id="phoneNumber" formControlName="phoneNumber" type="tel"/>
+        @if (f['phoneNumber'].touched && f['phoneNumber'].invalid) {
+          <div>
+            @if (f['phoneNumber'].errors?.['required']) {
+              <div class="form-error">Phone number is required</div>
+            }
+            @if (f['phoneNumber'].errors?.['pattern']) {
+              <div class="form-error">Phone number format is invalid</div>
+            }
+          </div>
+        }
+      </div>
+      <div class="form-section">
+        <label class="form-label" for="email">Email:</label>
+        <input class="form-input" id="email" formControlName="email" type="email"/>
+        @if (f['email'].touched && f['email'].invalid) {
+          <div>
+            @if (f['email'].errors?.['required']) {
+              <div class="form-error">Email is required</div>
+            }
+            @if (f['email'].errors?.['email']) {
+              <div class="form-error">Email format is invalid</div>
+            }
+          </div>
+        }
+      </div>
+      <div class="form-section">
+        <label class="form-label" for="password">Password:</label>
+        <input class="form-input" id="password" formControlName="password" type="password"/>
+        @if (f['password'].touched && f['password'].invalid) {
+          <div>
+            @if (f['password'].errors?.['required']) {
+              <div class="form-error">Password is required</div>
+            }
+          </div>
+        }
+      </div>
+      <div class="form-section">
+        <button class="form-submit-button" type="submit" [disabled]="signUpForm.invalid">Sign In</button>
+      </div>
+    </form>
+  </div>
+</div>

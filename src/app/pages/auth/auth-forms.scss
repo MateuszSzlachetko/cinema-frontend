@@ -1,0 +1,81 @@
+$navbar-height: 80px;
+.sign-in-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - $navbar-height);
+}
+
+.sign-in-page__form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-opaque);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  margin-top: 1rem;
+}
+
+.form-label {
+  font-size: 1.5rem;
+  color: var(--text);
+  padding-bottom: 0.5rem;
+}
+
+.form-input {
+  min-height: 3rem;
+  font-size: 1.25rem;
+  color: var(--text);
+  padding: 0.25rem;
+  background-color: var(--navbar);
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+  width: 350px;
+}
+
+.form-input:focus {
+  box-shadow: 0 0 5px var(--secondary);
+  border-color: var(--secondary);
+}
+
+.form-error {
+  color: var(--text);
+  font-size: 0.875rem;
+  padding: 0.5rem 0 0.25rem;
+  box-shadow: 0 8px 4px -6px var(--accent);
+  margin-bottom: 0.5rem;
+  margin-left: 0.25rem;
+}
+
+.form-submit-button {
+  outline: none;
+  border: none;
+  color: var(--text);
+  background-color: var(--background-opaque);
+  border-radius: 8px;
+  font-size: 1.25rem;
+  padding: 0.5rem 1rem;
+  align-self: center;
+  cursor: pointer;
+}
+
+.form-submit-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+@media screen and (max-width: 400px) {
+  .form-input {
+    width: auto;
+  }
+}
