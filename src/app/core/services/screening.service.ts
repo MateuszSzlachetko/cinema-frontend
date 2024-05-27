@@ -15,7 +15,7 @@ export class ScreeningService {
   constructor() {
   }
 
-  getScreeningsByDate(date: Date): Observable<any> {
+  getScreeningsByDate(date: Date): Observable<ScreeningsInterface> {
     const dateParam = formatDate(date, "yyyy-MM-dd", 'en-US');
 
     if (!this.screenings.has(dateParam)) {

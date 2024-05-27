@@ -1,0 +1,24 @@
+<div class="screening-card">
+  <div class="screening-card__divisor">
+    <img priority
+         class="screening-card__movie-poster"
+         [ngSrc]="movie().moviePosterAccessURL"
+         alt="movie poster"
+         width="200" height="300">
+  </div>
+  <div class="screening-card__divisor flex-column">
+    <div class="movie_details">
+      <h2>
+        {{ movie().title }}
+      </h2>
+      <p class="movie_details__description">{{ movie().description }}</p>
+    </div>
+    <div class="screening-dates">
+      @for (screening of screenings();track screening.id) {
+        <button class="screening-dates__button">
+          {{screening.startDate | date: "HH:mm"}}
+        </button>
+      }
+    </div>
+  </div>
+</div>

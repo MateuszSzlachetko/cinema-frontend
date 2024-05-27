@@ -2,7 +2,7 @@
   <div class="screenings-page__dates" style="color: aliceblue">
     <div>
       @for (date of dates; track $index) {
-        <button class="dates__date-button">
+        <button class="dates__date-button" (click)="getScreenings($index)">
           {{ date | date:"EEE" }}
         </button>
       }
@@ -10,5 +10,13 @@
     <div class="dates__instruction">
       Please select your preferred screening date by clicking on the day.
     </div>
+  </div>
+  <div class="screenings-page__screenings">
+    @for (movie of moviesWithScreenings.keys(); track movie.id) {
+      <app-screening-card
+        [movie]="movie"
+        [screenings]="moviesWithScreenings.get(movie)!"
+      ></app-screening-card>
+    }
   </div>
 </div>
