@@ -12,11 +12,7 @@
     </div>
   </div>
   <div class="screenings-page__screenings">
-    @for (movie of moviesWithScreenings.keys(); track movie.id) {
-      <app-screening-card
-        [movie]="movie"
-        [screenings]="moviesWithScreenings.get(movie)!"
-      ></app-screening-card>
-    }
+    <app-movies-carousel [moviesWithScreenings]="moviesWithScreenings"></app-movies-carousel>
   </div>
 </div>
+

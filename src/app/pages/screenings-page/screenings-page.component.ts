@@ -5,6 +5,7 @@ import {ScreeningCardComponent} from "../../components/screening-card/screening-
 import {ScreeningInterface, ScreeningsInterface} from "../../core/interfaces/screening.interface";
 import {MovieInterface} from "../../core/interfaces/movie.interface";
 import {ActivatedRoute, Params, Router} from "@angular/router";
+import {MoviesCarouselComponent} from "../../components/movies-carousel/movies-carousel.component";
 
 const dayInMilliseconds: number = 1000 * 60 * 60 * 24;
 
@@ -13,7 +14,8 @@ const dayInMilliseconds: number = 1000 * 60 * 60 * 24;
   standalone: true,
   imports: [
     DatePipe,
-    ScreeningCardComponent
+    ScreeningCardComponent,
+    MoviesCarouselComponent
   ],
   templateUrl: './screenings-page.component.html',
   styleUrl: './screenings-page.component.scss'
@@ -25,6 +27,7 @@ export class ScreeningsPageComponent {
   moviesWithScreenings: Map<MovieInterface, ScreeningInterface[]> = new Map();
   activatedRoute: ActivatedRoute = inject(ActivatedRoute);
   router: Router = inject(Router);
+
 
   constructor() {
     this.activatedRoute.data.subscribe(({screenings$}) => {
