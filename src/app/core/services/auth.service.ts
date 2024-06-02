@@ -14,9 +14,7 @@ export class AuthService {
   private http: HttpClient = inject(HttpClient);
 
   constructor() {
-    this.token.asObservable().subscribe(t =>
-      this.saveToken(t)
-    )
+    this.token.next(this.getTokenFromLocalStorage())
   }
 
   signOut() {
@@ -30,6 +28,7 @@ export class AuthService {
     this.http.post<TokenInterface>(`${this.apiPath}/authenticate`, body).subscribe(
       t => {
         this.token.next(t);
+        this.saveToken(t);
         this.getCurrentUser();
       }
     )
@@ -49,8 +48,14 @@ export class AuthService {
     return of(this.token.getValue().access_token);
   }
 
+  getTokenFromLocalStorage() {
+    const access_token = localStorage.getItem("accessToken") || '';
+    const refresh_token = localStorage.getItem("refreshToken") || '';
+    return {access_token, refresh_token} as TokenInterface;
+  }
+
   saveToken(token: TokenInterface) {
-    localStorage.setItem('accessToken', JSON.stringify(token.access_token));
-    localStorage.setItem('refreshToken', JSON.stringify(token.refresh_token));
+    localStorage.setItem('accessToken', token.access_token);
+    localStorage.setItem('refreshToken', token.refresh_token);
   }
 }
