@@ -21,7 +21,7 @@ export const routes: Routes = [
   {
     path: 'screenings',
     component: ScreeningsPageComponent,
-    resolve: {screenings$: screeningsResolver}
+    resolve: {screenings$: screeningsResolver},
   },
   {
     path: '**',
