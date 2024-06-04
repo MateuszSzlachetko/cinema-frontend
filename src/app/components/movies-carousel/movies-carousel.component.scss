@@ -1,4 +1,5 @@
 .carousel {
+  margin-top: 1rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -37,6 +38,10 @@
 }
 
 .embla {
+  border: 1px solid var(--background-opaque);
+  background-color: var(--background-opaque);
+  border-radius: 8px;
+  padding: 0.5rem;
   overflow: hidden;
   width: 50%;
 }
@@ -49,4 +54,19 @@
   flex: 0 0 auto;
   min-width: 500px;
   margin-right: 2rem;
+}
+
+.empty-screenings-fallback {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.empty-screenings-fallback__message {
+  text-align: center;
+  color: var(--text);
+  background-color: var(--background-opaque);
+  padding: 1.5rem 3rem;
+  border-radius: 8px;
 }

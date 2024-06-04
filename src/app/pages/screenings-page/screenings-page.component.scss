@@ -45,6 +45,10 @@
   transform: scale(0.95);
 }
 
+.date-button--selected {
+  background-color: var(--background);
+}
+
 .screenings-page__screenings {
   width: 100%;
 }
