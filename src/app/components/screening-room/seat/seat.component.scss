@@ -1,0 +1,14 @@
+.seat {
+  padding: 0.25rem;
+  filter: invert(95%) sepia(9%) saturate(1532%) hue-rotate(304deg) brightness(103%) contrast(112%);
+  cursor: pointer;
+}
+
+.seat--not-available {
+  filter: invert(0%) sepia(0%) saturate(14%) hue-rotate(288deg) brightness(96%) contrast(100%);
+  cursor: not-allowed;
+}
+
+.seat--selected {
+  filter: invert(48%) sepia(85%) saturate(2282%) hue-rotate(354deg) brightness(107%) contrast(87%);
+}

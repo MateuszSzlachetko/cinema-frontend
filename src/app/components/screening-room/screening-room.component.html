@@ -1,0 +1,14 @@
+<p>screening-room works!</p>
+<div class="flex-container">
+  <div class="screening-room">
+    @for (row of rows; track row) {
+      <div class="screening-room__row">
+        @for (column of columns; track columns) {
+          <app-seat [seat]="findSeatByRowAndColumn(row,column)"></app-seat>
+        }
+      </div>
+    }
+  </div>
+</div>
+
+

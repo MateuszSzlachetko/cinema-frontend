@@ -1,0 +1,9 @@
+<div class="seat"
+     [ngClass]="{
+     'seat--not-available':!seat().isFree,
+     'seat--selected':selected
+     }"
+     (click)="selectSeat()">
+  <img src="assets/icons/seat-icon.png" alt="seat icon">
+  <!--  {{ seat().row }} - {{seat().column}}-->
+</div>
