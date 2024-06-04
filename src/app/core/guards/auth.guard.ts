@@ -1,7 +1,7 @@
 import {inject} from "@angular/core";
 import {Router} from "@angular/router";
 import {AuthService} from "../services/auth.service";
-import {map} from "rxjs";
+import {filter, map, Observable} from "rxjs";
 
 export const authGuard = () => {
   const authService = inject(AuthService);
@@ -17,4 +17,15 @@ export const authGuard = () => {
       return true;
     })
   );
+}
+
+// todo: z authService nie zapisywać użytkownika w local storage
+export const isLoggedIn = (): Observable<boolean> => {
+  const authService = inject(AuthService);
+  const user$ = authService.getCurrentUser();
+
+  return user$.pipe(
+    filter((currentUser) => currentUser !== undefined),
+    map(currentUser => currentUser.email !== undefined)
+  )
 }

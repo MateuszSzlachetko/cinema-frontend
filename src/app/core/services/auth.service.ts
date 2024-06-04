@@ -15,10 +15,12 @@ export class AuthService {
 
   constructor() {
     this.token.next(this.getTokenFromLocalStorage())
+    this.currentUser.next(this.getCurrentUserFromLocalStorage())
   }
 
   signOut() {
     this.saveToken({} as TokenInterface)
+    this.saveUser({} as UserInterface)
     this.currentUser.next({} as UserInterface)
     this.token.next({} as TokenInterface)
   }
@@ -38,7 +40,10 @@ export class AuthService {
     if (this.token.getValue().access_token)
       if (!this.currentUser.getValue().email) {
         this.http.get<UserInterface>(`api/users/details`).subscribe(
-          u => this.currentUser.next(u)
+          u => {
+            this.currentUser.next(u);
+            this.saveUser(u);
+          }
         )
       }
     return this.currentUser.asObservable()
@@ -54,8 +59,16 @@ export class AuthService {
     return {access_token, refresh_token} as TokenInterface;
   }
 
+  saveUser(user: UserInterface) {
+    localStorage.setItem('currentUser', JSON.stringify(user));
+  }
+
   saveToken(token: TokenInterface) {
-    localStorage.setItem('accessToken', token.access_token);
-    localStorage.setItem('refreshToken', token.refresh_token);
+    localStorage.setItem('accessToken', token.access_token || '');
+    localStorage.setItem('refreshToken', token.refresh_token || '');
+  }
+
+  private getCurrentUserFromLocalStorage() {
+    return JSON.parse(localStorage.getItem("currentUser") || "{}") as UserInterface;
   }
 }

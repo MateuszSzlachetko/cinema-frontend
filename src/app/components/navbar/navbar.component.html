@@ -8,11 +8,17 @@
     Cinema
   </h1>
   <div class="navbar__links">
-    <a class="links__item" routerLink="/sign-in">
-      Sign in
-    </a>
-    <a class="links__item" routerLink="/sign-up">
-      Sign up
-    </a>
+    @if ((isLoggedIn$ | async)) {
+      <a class="links__item" (click)="authService.signOut()">
+        Sign out
+      </a>
+    } @else {
+      <a class="links__item" routerLink="/sign-in">
+        Sign in
+      </a>
+      <a class="links__item" routerLink="/sign-up">
+        Sign up
+      </a>
+    }
   </div>
 </nav>
