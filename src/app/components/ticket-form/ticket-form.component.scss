@@ -1,0 +1,109 @@
+.ticket-finalize {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.ticket-finalize__movie {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 40%;
+  background-color: var(--background-opaque);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.movie__poster {
+  flex: 1;
+}
+
+.movie__details {
+  text-align: center;
+  flex: 1;
+}
+
+.details__header {
+  color: var(--text);
+}
+
+.details__description {
+  color: var(--text);
+  padding: 1rem 0;
+}
+
+.details__date {
+  color: var(--text);
+  padding: 1rem 0;
+}
+
+.details__duration {
+  color: var(--text);
+  padding: 1rem 0;
+}
+
+.ticket-finalize__user-details {
+  width: 40%;
+  background-color: var(--background-opaque);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.user-details__row {
+  padding: 1rem;
+  color: var(--text);
+  font-size: 1.25rem;
+}
+
+.row__label {
+  font-weight: 600;
+}
+
+.ticket-finalize__selected-seats {
+  display: flex;
+  width: 40%;
+  background-color: var(--background-opaque);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem;
+  flex-wrap: wrap;
+}
+
+.selected-seats__header {
+  color: var(--text);
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.selected-seats__seat {
+  padding: 0.5rem;
+  margin: 0.5rem;
+  color: var(--text);
+  background-color: var(--accent);
+  border-radius: 8px;
+  font-size: 1rem;
+  align-self: center;
+  white-space: nowrap;
+}
+
+.ticket-finalize__confirm-button {
+  outline: none;
+  border: 2px solid var(--background-opaque);
+  color: var(--text);
+  background-color: var(--accent);
+  border-radius: 8px;
+  font-size: 1.25rem;
+  padding: 0.5rem 1rem;
+  align-self: center;
+  cursor: pointer;
+}
+
+.ticket-finalize__confirm-button:active {
+  transform: scale(0.95);
+}

@@ -1,0 +1,21 @@
+<div class="flex-container">
+  <div class="validate-ticket-form">
+    <form [formGroup]="validateTicketForm" (ngSubmit)="onSubmit()">
+      <div class="form-section">
+        <label class="form-label" for="id">Unique code:</label>
+        <input class="form-input" id="id" formControlName="id" type="text"/>
+        @if (f['id'].touched && f['id'].invalid) {
+          <div>
+            @if (f['id'].errors?.['required']) {
+              <div class="form-error">Code is required</div>
+            }
+          </div>
+        }
+      </div>
+      <div class="form-section">
+        <button class="form-submit-button" type="submit" [disabled]="validateTicketForm.invalid">Validate</button>
+      </div>
+    </form>
+  </div>
+  <div class="validate-ticket-form"></div>
+</div>

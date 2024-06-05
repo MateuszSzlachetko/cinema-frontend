@@ -1,0 +1,52 @@
+<div class="ticket-finalize">
+  <div class="ticket-finalize__movie">
+    <div class="movie__poster">
+      @if (movie.moviePosterAccessURL) {
+        <img
+          class="poster"
+          [src]="movie.moviePosterAccessURL"
+          alt="movie poster"
+          width="200" height="300">
+      }
+    </div>
+    <div class="movie__details">
+      <h2 class="details__header">
+        {{ movie.title }}
+      </h2>
+      <p class="details__description">{{ movie.description }}</p>
+      <p class="details__date">
+        {{ screening.startDate | date:'dd-MM-yyyy HH:mm' }}
+      </p>
+      <p class="details__duration">
+        Duration: {{ screening.advertisementsDuration + movie.duration }} min
+      </p>
+    </div>
+  </div>
+  <div class="ticket-finalize__user-details">
+    <p class="user-details__row">
+      <span class="row__label">Email:</span> {{ user.email }}
+    </p>
+    <p class="user-details__row">
+      <span class="row__label">Phone number:</span> {{ user.phoneNumber }}
+    </p>
+    <p class="user-details__row">
+      <span class="row__label">Full name: </span> {{ user.name }} {{ user.surname }}
+    </p>
+  </div>
+  <div class="ticket-finalize__selected-seats">
+    <h2 class="selected-seats__header">Selected seats</h2>
+    @for (seat of ticketReserveService.getSelectedSeats(); track seat) {
+      <p class="selected-seats__seat">
+        {{ seat.row }}-{{ seat.column }}
+      </p>
+    }
+  </div>
+  <div>
+    <button class="ticket-finalize__confirm-button" (click)="confirm()">
+      Confirm
+    </button>
+  </div>
+</div>
+
+
+

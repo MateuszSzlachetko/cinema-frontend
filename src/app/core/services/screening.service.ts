@@ -2,7 +2,8 @@ import {inject, Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {formatDate} from "@angular/common";
-import {ScreeningsInterface} from "../interfaces/screening.interface";
+import {ScreeningInterface, ScreeningsInterface} from "../interfaces/screening.interface";
+import {MovieInterface} from "../interfaces/movie.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,26 @@ export class ScreeningService {
     }
 
     return this.screenings.get(dateParam)!.asObservable();
+  }
+
+  getMovieByScreeningId(screeningId: string) {
+    let scr: ScreeningInterface | undefined = this.getScreeningById(screeningId)
+    let movie: MovieInterface | undefined;
+
+    this.screenings.forEach(screenings => {
+      movie = screenings.getValue().movies.find(m => m.id === scr?.movieId)
+    })
+
+    return movie;
+  }
+
+  getScreeningById(screeningId: string) {
+    let scr: ScreeningInterface | undefined;
+
+    this.screenings.forEach(screenings => {
+      scr = screenings.getValue().screenings.find(s => s.id === screeningId)
+    })
+
+    return scr;
   }
 }

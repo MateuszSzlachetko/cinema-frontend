@@ -1,10 +1,12 @@
-import {Injectable} from "@angular/core";
+import {inject, Injectable} from "@angular/core";
 import {SeatInterface} from "../../../core/interfaces/screening-room.interface";
+import {HttpClient} from "@angular/common/http";
 
 
 @Injectable()
 export class TicketReserveService {
   selectedSeats: SeatInterface[] = [];
+  http: HttpClient = inject(HttpClient)
 
   addSeat(seat: SeatInterface): void {
     this.selectedSeats.push(seat);
@@ -18,5 +20,17 @@ export class TicketReserveService {
 
   getSelectedSeats(): SeatInterface[] {
     return this.selectedSeats;
+  }
+
+  removeAllSeats(): void {
+    this.selectedSeats = [];
+  }
+
+  reserve(screeningId: string, seats: SeatInterface[]) {
+    const body = {
+      screeningId: screeningId,
+      seats: seats,
+    }
+    return this.http.post('/api/tickets/purchase', body)
   }
 }

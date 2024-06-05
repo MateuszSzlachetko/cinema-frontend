@@ -1,7 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {AsyncPipe} from "@angular/common";
-import {isLoggedIn} from '../../core/guards/auth.guard';
+import {isLoggedIn, isUsher} from '../../core/guards/auth.guard';
 import {AuthService} from "../../core/services/auth.service";
 
 @Component({
@@ -16,5 +16,6 @@ import {AuthService} from "../../core/services/auth.service";
 })
 export class NavbarComponent {
   isLoggedIn$ = isLoggedIn();
+  isUsher$ = isUsher()
   authService: AuthService = inject(AuthService);
 }

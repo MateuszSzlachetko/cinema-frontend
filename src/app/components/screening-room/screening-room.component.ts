@@ -3,6 +3,7 @@ import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {ScreeningRoomService} from "../../core/services/screening-room.service";
 import {ScreeningRoomInterface, SeatInterface} from "../../core/interfaces/screening-room.interface";
 import {SeatComponent} from "./seat/seat.component";
+import {TicketReserveService} from "../../pages/ticket-reserve-page/service/ticket-reserve.service";
 
 @Component({
   selector: 'app-screening-room',
@@ -17,6 +18,7 @@ import {SeatComponent} from "./seat/seat.component";
 export class ScreeningRoomComponent {
   activatedRoute: ActivatedRoute = inject(ActivatedRoute);
   screeningRoomService: ScreeningRoomService = inject(ScreeningRoomService);
+  ticketReserveService: TicketReserveService = inject(TicketReserveService)
   screeningRoom: ScreeningRoomInterface = {} as ScreeningRoomInterface;
   screeningId: string = '';
   rows: Set<string> = new Set();
@@ -24,6 +26,7 @@ export class ScreeningRoomComponent {
   router: Router = inject(Router);
 
   constructor() {
+    // this.ticketReserveService.removeAllSeats()
     this.activatedRoute.queryParams.subscribe(params => {
       this.screeningId = params['screeningId'];
       if (this.screeningId)

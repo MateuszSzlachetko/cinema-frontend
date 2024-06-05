@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {RouterOutlet} from "@angular/router";
 import {ScreeningRoomInterface} from "../../core/interfaces/screening-room.interface";
-import {TicketReserveService} from "../../components/screening-room/service/ticket-reserve.service";
+import {TicketReserveService} from "./service/ticket-reserve.service";
 
 @Component({
   selector: 'app-ticket-reserve-page',

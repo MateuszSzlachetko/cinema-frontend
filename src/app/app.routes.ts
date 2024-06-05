@@ -6,6 +6,9 @@ import {ScreeningsPageComponent} from "./pages/screenings-page/screenings-page.c
 import {screeningsResolver} from "./core/resolvers/screenings.resolver";
 import {TicketReservePageComponent} from "./pages/ticket-reserve-page/ticket-reserve-page.component";
 import {ScreeningRoomComponent} from "./components/screening-room/screening-room.component";
+import {TicketFormComponent} from "./components/ticket-form/ticket-form.component";
+import {authGuard, usherGuard} from "./core/guards/auth.guard";
+import {ValidateTicketPageComponent} from "./pages/validate-ticket-page/validate-ticket-page.component";
 
 export const routes: Routes = [
   {
@@ -31,9 +34,20 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        component: ScreeningRoomComponent
+        component: ScreeningRoomComponent,
+        canActivate: [authGuard]
+      },
+      {
+        path: 'finalize',
+        component: TicketFormComponent,
+        canActivate: [authGuard]
       }
     ]
+  },
+  {
+    path: 'validate-ticket',
+    component: ValidateTicketPageComponent,
+    canActivate: [usherGuard]
   },
   {
     path: '**',

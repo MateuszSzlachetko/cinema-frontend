@@ -8,6 +8,11 @@
     Cinema
   </h1>
   <div class="navbar__links">
+    @if (isUsher$ | async) {
+      <a class="links__item" routerLink="/validate-ticket">
+        Validate ticket
+      </a>
+    }
     @if ((isLoggedIn$ | async)) {
       <a class="links__item" (click)="authService.signOut()">
         Sign out
