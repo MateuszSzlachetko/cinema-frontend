@@ -7,6 +7,6 @@ export class TicketService {
   http: HttpClient = inject(HttpClient);
 
   checkTicket(ticketId: string) {
-    return this.http.post(`${this.apiPath}?ticketId=${ticketId}`, {})
+    return this.http.patch(`${this.apiPath}?ticketId=${ticketId}`, {})
   }
 }

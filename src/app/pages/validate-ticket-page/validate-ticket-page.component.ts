@@ -1,7 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {AuthService} from "../../core/services/auth.service";
+import {TicketService} from "../../core/services/ticket.service";
 
 @Component({
   selector: 'app-validate-ticket-page',
@@ -17,7 +17,8 @@ export class ValidateTicketPageComponent {
   validateTicketForm: FormGroup;
   fb: FormBuilder = inject(FormBuilder);
   router: Router = inject(Router);
-  ticketService:
+  ticketService: TicketService = inject(TicketService);
+  responseMessage: any;
 
   constructor() {
     this.validateTicketForm = this.fb.group({
@@ -27,6 +28,10 @@ export class ValidateTicketPageComponent {
 
   onSubmit() {
     if (this.validateTicketForm.valid) {
+      this.ticketService.checkTicket(this.validateTicketForm.controls['id'].value).subscribe(res => {
+        this.responseMessage = res;
+        console.log(this.responseMessage);
+      })
     }
   }
 

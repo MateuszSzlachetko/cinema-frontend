@@ -17,5 +17,9 @@
       </div>
     </form>
   </div>
-  <div class="validate-ticket-form"></div>
+  @if (responseMessage) {
+    <div class="response">
+      {{ responseMessage?.ticketState }}
+    </div>
+  }
 </div>

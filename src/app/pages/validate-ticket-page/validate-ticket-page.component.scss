@@ -86,3 +86,11 @@
     width: auto;
   }
 }
+
+.response {
+  min-width: 2rem;
+  background-color: var(--background-opaque);
+  color: var(--text);
+  padding: 1rem;
+  border-radius: 8px;
+}
