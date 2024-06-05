@@ -36,6 +36,24 @@ export class AuthService {
     )
   }
 
+  signUp(name: string, surname: string, phoneNumber: string, email: string, password: string) {
+    const body = {
+      name: name,
+      surname: surname,
+      phoneNumber: phoneNumber,
+      email: email,
+      password: password,
+      role: "VIEWER"
+    };
+    this.http.post<TokenInterface>(`${this.apiPath}/register`, body).subscribe(
+      t => {
+        this.token.next(t);
+        this.saveToken(t);
+        this.getCurrentUser();
+      }
+    )
+  }
+
   getCurrentUser(): Observable<UserInterface> {
     if (this.token.getValue().access_token)
       if (!this.currentUser.getValue().email) {
