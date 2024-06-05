@@ -3,12 +3,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.width-60 {
+  min-width: 60%;
 }
 
 .screening-room {
   background-color: var(--background-opaque);
-  padding: 1rem;
+  padding: 3rem;
   border-radius: 8px;
+  width: 100%
 }
 
 .screening-room__row {
@@ -16,4 +23,56 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.ticket-form-and-map-legend {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  width: 100%
+}
+
+.map-legend {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-opaque);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.map-legend__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.map-legend__item > p {
+  text-align: center;
+  color: var(--text);
+  padding: 0.5rem;
+}
+
+.ticket-form__navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigation__button {
+  outline: none;
+  border: 2px solid var(--background-opaque);
+  color: var(--text);
+  background-color: var(--accent);
+  border-radius: 8px;
+  font-size: 1.25rem;
+  padding: 0.5rem 1rem;
+  align-self: center;
+  cursor: pointer;
+}
+
+.navigation__button:active {
+  transform: scale(0.95);
 }

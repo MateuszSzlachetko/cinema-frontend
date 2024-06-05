@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {RouterOutlet} from "@angular/router";
 import {ScreeningRoomInterface} from "../../core/interfaces/screening-room.interface";
+import {TicketReserveService} from "../../components/screening-room/service/ticket-reserve.service";
 
 @Component({
   selector: 'app-ticket-reserve-page',
@@ -9,7 +10,8 @@ import {ScreeningRoomInterface} from "../../core/interfaces/screening-room.inter
     RouterOutlet
   ],
   templateUrl: './ticket-reserve-page.component.html',
-  styleUrl: './ticket-reserve-page.component.scss'
+  styleUrl: './ticket-reserve-page.component.scss',
+  providers:[TicketReserveService]
 })
 export class TicketReservePageComponent {
   screeningRoom: ScreeningRoomInterface = {} as ScreeningRoomInterface;

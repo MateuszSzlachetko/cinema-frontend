@@ -1,6 +1,7 @@
-import {Component, input, InputSignal} from '@angular/core';
+import {Component, inject, input, InputSignal} from '@angular/core';
 import {SeatInterface} from "../../../core/interfaces/screening-room.interface";
 import {NgClass} from "@angular/common";
+import {TicketReserveService} from "../service/ticket-reserve.service";
 
 @Component({
   selector: 'app-seat',
@@ -14,8 +15,13 @@ import {NgClass} from "@angular/common";
 export class SeatComponent {
   seat: InputSignal<SeatInterface> = input.required<SeatInterface>()
   selected: boolean = false;
+  ticketReserveService: TicketReserveService = inject(TicketReserveService);
 
   selectSeat() {
     this.selected = !this.selected
+    if (this.selected)
+      this.ticketReserveService.addSeat(this.seat())
+    else
+      this.ticketReserveService.removeSeat(this.seat())
   }
 }
