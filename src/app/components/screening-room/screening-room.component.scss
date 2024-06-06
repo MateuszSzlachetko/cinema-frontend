@@ -19,6 +19,18 @@
   width: 100%
 }
 
+.screening-room__screen {
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+  background-color: var(--background);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
 .screening-room__row {
   display: flex;
   flex-direction: row;
