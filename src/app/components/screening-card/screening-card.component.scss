@@ -55,3 +55,8 @@
 .screening-dates__button:active {
   transform: scale(0.95);
 }
+
+.screening-dates__button:disabled {
+  background-color: var(--background-opaque);
+  cursor: not-allowed;
+}

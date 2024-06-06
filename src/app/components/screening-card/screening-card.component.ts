@@ -26,4 +26,6 @@ export class ScreeningCardComponent {
       queryParams: {screeningId: screening.id}
     }).then()
   }
+
+  protected readonly Date = Date;
 }

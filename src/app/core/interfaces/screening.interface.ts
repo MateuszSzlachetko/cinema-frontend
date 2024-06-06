@@ -5,7 +5,7 @@ export interface ScreeningInterface {
   screeningRoomId: number,
   movieId: string,
   advertisementsDuration: number,
-  startDate: Date,
+  startDate: string,
 }
 
 export interface ScreeningsInterface {

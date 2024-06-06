@@ -15,7 +15,7 @@
     </div>
     <div class="screening-dates">
       @for (screening of screenings();track screening.id) {
-        <button class="screening-dates__button" (click)="reserveTicket(screening)">
+        <button class="screening-dates__button" [disabled]="Date.parse(screening.startDate) < Date.now()" (click)="reserveTicket(screening)">
           {{screening.startDate | date: "HH:mm"}}
         </button>
       }
