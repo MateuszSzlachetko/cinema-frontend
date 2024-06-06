@@ -5,6 +5,26 @@
   align-items: center;
   width: 100%;
   margin: 1rem 0;
+  position: relative;
+}
+
+.ticket-finalize__reservation-code {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  height: 150px;
+  text-align: center;
+  color: var(--text);
+  background-color: var(--primary);
+  border: 2px solid var(--text);
+  border-radius: 8px;
+  font-size: 1.5rem;
 }
 
 .ticket-finalize__movie {

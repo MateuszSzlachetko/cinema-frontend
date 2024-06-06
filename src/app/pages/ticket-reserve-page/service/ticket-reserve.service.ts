@@ -1,7 +1,8 @@
 import {inject, Injectable} from "@angular/core";
 import {SeatInterface} from "../../../core/interfaces/screening-room.interface";
 import {HttpClient} from "@angular/common/http";
-
+import {Observable} from "rxjs";
+import {TicketResponseInterface} from "../../../core/interfaces/ticket.interface";
 
 @Injectable()
 export class TicketReserveService {
@@ -26,11 +27,11 @@ export class TicketReserveService {
     this.selectedSeats = [];
   }
 
-  reserve(screeningId: string, seats: SeatInterface[]) {
+  reserve(screeningId: string, seats: SeatInterface[]): Observable<TicketResponseInterface> {
     const body = {
       screeningId: screeningId,
       seats: seats,
     }
-    return this.http.post('/api/tickets/purchase', body)
+    return this.http.post<TicketResponseInterface>('/api/tickets/purchase', body)
   }
 }

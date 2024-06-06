@@ -1,4 +1,10 @@
 <div class="ticket-finalize">
+  @if (reservationCode) {
+    <div class="ticket-finalize__reservation-code">
+      Save your reservation code:
+      {{reservationCode}}
+    </div>
+  }
   <div class="ticket-finalize__movie">
     <div class="movie__poster">
       @if (movie.moviePosterAccessURL) {

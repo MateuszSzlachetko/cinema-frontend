@@ -27,20 +27,7 @@ export class TicketFormComponent {
   user: UserInterface = {} as UserInterface;
   movie: MovieInterface = {} as MovieInterface;
   screening: ScreeningInterface = {} as ScreeningInterface;
-  // movie: MovieInterface = {
-  //   "id": "123e4567-e89b-12d3-a456-426614174015",
-  //   "title": "Mystery in the Woods",
-  //   "description": "A suspenseful thriller.",
-  //   "duration": 90,
-  //   "moviePosterAccessURL": "/images/mystery-in-the-woods-poster.jpg"
-  // };
-  // screening: ScreeningInterface = {
-  //   "id": "123e4567-e89b-12d3-a456-426614170246",
-  //   "startDate": new Date("2024-06-05T09:00:00"),
-  //   "advertisementsDuration": 10,
-  //   "movieId": "123e4567-e89b-12d3-a456-426614174014",
-  //   "screeningRoomId": 1
-  // };
+  reservationCode: string = '';
 
   constructor() {
     this.authService.getCurrentUser().subscribe(user => this.user = user)
@@ -52,6 +39,9 @@ export class TicketFormComponent {
 
   confirm() {
     this.ticketReserveService.reserve(this.screening.id, this.ticketReserveService.getSelectedSeats())
-      .subscribe(response => console.log(response))
+      .subscribe(response => {
+        this.reservationCode = response.reservationCode
+        setTimeout(()=> this.reservationCode = '',10000)
+      })
   }
 }
